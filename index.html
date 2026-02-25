@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
+    <!-- EN-TÊTE AVEC LOGO, CONTACTS, HORLOGE, MÉTÉO ET LANGUE -->
     <header class="header">
         <div class="container header-container">
             <div class="logo">
@@ -54,6 +55,7 @@
         </div>
     </header>
 
+    <!-- SECTION HÉRO -->
     <section class="hero">
         <div class="container hero-content">
             <h2 class="hero-title">
@@ -70,16 +72,20 @@
         </div>
     </section>
 
+    <!-- SHOWROOM : GRILLE DES VOITURES -->
     <section class="showroom">
         <div class="container">
             <div class="section-header">
                 <h2><span class="fr">Notre flotte</span> <span class="ar">أسطولنا</span></h2>
                 <p><span class="fr">Choisissez votre voiture</span> <span class="ar">اختر سيارتك</span></p>
             </div>
+
             <div class="car-grid">
-                <!-- 6 cartes comme avant (contenu identique) -->
+                <!-- Peugeot 208 -->
                 <div class="car-card" data-car="Peugeot 208" data-car-ar="بيجو 208">
-                    <div class="car-img"><img src="images/photo_2026-02-24_23-44-48.jpg" alt="Peugeot 208"></div>
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-44-48.jpg" alt="Peugeot 208">
+                    </div>
                     <h3 class="car-name">Peugeot 208 <span class="ar">بيجو 208</span></h3>
                     <div class="car-desc">
                         <p class="fr"><i class="fas fa-check-circle"></i> Vivez l'expérience maintenant!</p>
@@ -89,11 +95,81 @@
                     </div>
                     <button class="btn-wa" data-car="Peugeot 208"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
-                <!-- autres cartes ... (نفس الشيء) -->
+                <!-- Kia Picanto -->
+                <div class="car-card" data-car="Kia Picanto" data-car-ar="كيا بيكانتو">
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-44-41.jpg" alt="Kia Picanto">
+                    </div>
+                    <h3 class="car-name">Kia Picanto <span class="ar">كيا بيكانتو</span></h3>
+                    <div class="car-desc">
+                        <p class="fr"><i class="fas fa-check-circle"></i> Kia Picanto is ready.</p>
+                        <p class="ar"><i class="fas fa-check-circle"></i> كياه Kia Picanto إبعاد:</p>
+                        <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
+                        <p class="ar"><i class="fas fa-plane"></i> توصيل الحائط للمطار</p>
+                    </div>
+                    <button class="btn-wa" data-car="Kia Picanto"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
+                </div>
+                <!-- Hyundai Grand i10 -->
+                <div class="car-card" data-car="Hyundai Grand i10" data-car-ar="هيونداي i10">
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-42-09.jpg" alt="Hyundai Grand i10">
+                    </div>
+                    <h3 class="car-name">Hyundai Grand i10 <span class="ar">هيونداي i10</span></h3>
+                    <div class="car-desc">
+                        <p class="fr"><i class="fas fa-check-circle"></i> Hyundai Grand i10 is waiting.</p>
+                        <p class="ar"><i class="fas fa-check-circle"></i> كياه Kia Picanto إبعاد: توصيل الحائط للمطار Grand i10</p>
+                        <p class="fr"><i class="fas fa-plane"></i> Fire airport delivery</p>
+                        <p class="ar"><i class="fas fa-plane"></i> تعمل مجاني للمطار!</p>
+                    </div>
+                    <button class="btn-wa" data-car="Hyundai Grand i10"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
+                </div>
+                <!-- Renault Clio -->
+                <div class="car-card" data-car="Renault Clio" data-car-ar="رينو كليو">
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-45-03.jpg" alt="Renault Clio">
+                    </div>
+                    <h3 class="car-name">Renault Clio <span class="ar">رينو كليو</span></h3>
+                    <div class="car-desc">
+                        <p class="fr"><i class="fas fa-check-circle"></i> Elégance awaits ! All-new Renault Clio.</p>
+                        <p class="ar"><i class="fas fa-check-circle"></i> كليو الجديدة في انتظارك</p>
+                        <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
+                        <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
+                    </div>
+                    <button class="btn-wa" data-car="Renault Clio"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
+                </div>
+                <!-- Lifan Xpro -->
+                <div class="car-card" data-car="Lifan Xpro" data-car-ar="ليفان Xpro">
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-44-57.jpg" alt="Lifan Xpro">
+                    </div>
+                    <h3 class="car-name">Lifan Xpro <span class="ar">ليفان Xpro</span></h3>
+                    <div class="car-desc">
+                        <p class="fr"><i class="fas fa-check-circle"></i> SUV spacieux, prêt pour l'aventure.</p>
+                        <p class="ar"><i class="fas fa-check-circle"></i> SUV واسع، جاهز للمغامرة</p>
+                        <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
+                        <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
+                    </div>
+                    <button class="btn-wa" data-car="Lifan Xpro"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
+                </div>
+                <!-- Arrizo 5 -->
+                <div class="car-card" data-car="Arrizo 5" data-car-ar="أريزو 5">
+                    <div class="car-img">
+                        <img src="images/photo_2026-02-24_23-44-53.jpg" alt="Arrizo 5">
+                    </div>
+                    <h3 class="car-name">Arrizo 5 <span class="ar">أريزو 5</span></h3>
+                    <div class="car-desc">
+                        <p class="fr"><i class="fas fa-check-circle"></i> Berline élégante et confortable.</p>
+                        <p class="ar"><i class="fas fa-check-circle"></i> سيدان أنيقة ومريحة</p>
+                        <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
+                        <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
+                    </div>
+                    <button class="btn-wa" data-car="Arrizo 5"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- SECTION CONDITIONS (DÉPLIABLE) -->
     <section class="terms-section-page">
         <div class="container">
             <div class="terms-header" id="termsHeader">
@@ -102,36 +178,68 @@
             </div>
             <div class="terms-content" id="termsContent">
                 <div class="terms-grid">
-                    <!-- 16 conditions -->
                     <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Âge minimum requis: 25 ans</span><span class="ar">السن المطلوب الأمني: 25 سنة</span></div>
-                    <!-- ... -->
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le véhicule est sous la responsabilité du signataire uniquement</span><span class="ar">السيرة تحت مسؤولية الشخص الواحد الذي وقع العقد</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de transport de marchandises ou objets illégaux</span><span class="ar">لا تستعمل السيرة في نقل بضائع أو أشياء غير شرعية</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction d'attacher une remorque</span><span class="ar">غير مسموح بربط مقطورة أو مركبة مماثلة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Autorisation requise pour quitter la wilaya</span><span class="ar">عند مغادرة المركبة إلى خارج الولاية، يجب الاستئذان</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Kilométrage max: 300 km/jour, dépassement 15 DA/km</span><span class="ar">السيرة 300 كم في اليوم، كل تجاوز 15 دج/كم</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le client règle toutes les amendes</span><span class="ar">الزبون يلتزم بدفع المخالفات المرصودة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Assurance uniquement sur le territoire national</span><span class="ar">السيرة مؤمنة داخل الوطن فقط</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte des papiers: responsable client</span><span class="ar">ضياع أوراق السيارة: الزبون مسؤول</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Durée du contrat calculée à partir de la signature</span><span class="ar">مدة العقد تحسب من تاريخ التوقيع</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de circuit de course ou chemins non carrossables</span><span class="ar">لا يسمح بذلك السيارات التي تم استبدالها</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Retour du véhicule à l'agence obligatoire</span><span class="ar">دائمًا السيرة تتعامل مع المحطة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte d'accessoires: client responsable des frais</span><span class="ar">ضياع الكسورات: الزبون يتحمل التكاليف</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">En cas d'accident, client paie réparations et immobilisation</span><span class="ar">في حالة وقوع حادث، الزبون يتحمل الإصلاحات وأيام التوقف</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Société décline responsabilité pour dommages corporels</span><span class="ar">الوكالة لا تتحمل مسؤولية الأضرار البدنية</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Pneus crevés: réparation à la charge du client</span><span class="ar">عطل في الجولاء (الإطارات) الزبون يتحمل التكلفة</span></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- MODAL DE RÉSERVATION SIMPLE (SANS CONDITIONS) -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2><span class="fr">Réserver</span> <span class="ar">احجز</span> <span id="modalCarName"></span> <span class="ar" id="modalCarNameAr"></span></h2>
             <form id="bookingForm">
-                <input type="hidden" id="carInput">
-                <input type="hidden" id="carArInput">
+                <input type="hidden" id="carInput" name="car">
+                <input type="hidden" id="carArInput" name="carAr">
+                
                 <div class="form-row">
-                    <div class="form-group"><label><span class="fr">Prénom *</span><span class="ar">الاسم *</span></label><input type="text" id="firstName" required></div>
-                    <div class="form-group"><label><span class="fr">Nom *</span><span class="ar">اللقب *</span></label><input type="text" id="lastName" required></div>
+                    <div class="form-group">
+                        <label><span class="fr">Prénom *</span> <span class="ar">الاسم *</span></label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label><span class="fr">Nom *</span> <span class="ar">اللقب *</span></label>
+                        <input type="text" id="lastName" required>
+                    </div>
                 </div>
-                <div class="form-group"><label><span class="fr">Téléphone *</span><span class="ar">الهاتف *</span></label><input type="tel" id="phone" required placeholder="+213 XXX XX XX XX"></div>
-                <div class="form-row">
-                    <div class="form-group"><label><span class="fr">Durée (jours) * (min 2)</span><span class="ar">المدة (أيام) * (2 على الأقل)</span></label><input type="number" id="duration" min="2" value="2" required></div>
-                </div>
+
                 <div class="form-group">
-                    <label><span class="fr">Option de livraison *</span><span class="ar">خيار التوصيل *</span></label>
+                    <label><span class="fr">Téléphone *</span> <span class="ar">الهاتف *</span></label>
+                    <input type="tel" id="phone" required placeholder="+213 XXX XX XX XX">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><span class="fr">Durée (jours) * (min 2)</span> <span class="ar">المدة (أيام) * (2 على الأقل)</span></label>
+                        <input type="number" id="duration" min="2" value="2" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="fr">Option de livraison *</span> <span class="ar">خيار التوصيل *</span></label>
                     <div class="radio-group">
                         <label><input type="radio" name="delivery" value="aeroport" required> <span class="fr">Livraison à l'aéroport</span><span class="ar">توصيل إلى المطار</span></label>
                         <label><input type="radio" name="delivery" value="bureau"> <span class="fr">Récupération au bureau</span><span class="ar">الاستلام من المكتب</span></label>
                     </div>
                 </div>
+
+                <!-- Acceptation des conditions (lien vers la section) -->
                 <div class="terms-accept-box">
                     <label class="terms-accept">
                         <input type="checkbox" id="acceptTerms" required>
@@ -139,11 +247,13 @@
                         <span class="ar">أوافق على <a href="#termsHeader" class="terms-link">شروط الكراء</a></span>
                     </label>
                 </div>
-                <button type="submit" class="btn-red btn-block"><i class="fab fa-whatsapp"></i> <span class="fr">Générer PDF et envoyer</span> <span class="ar">إنشاء PDF وإرسال</span></button>
+
+                <button type="submit" class="btn-red btn-block" id="submitBooking"><i class="fab fa-whatsapp"></i> <span class="fr">Générer PDF et envoyer</span> <span class="ar">إنشاء PDF وإرسال</span></button>
             </form>
         </div>
     </div>
 
+    <!-- SECTION CONTACT ET RÉSEAUX -->
     <section class="contact-reminder">
         <div class="container">
             <div class="reminder-box">
@@ -168,6 +278,7 @@
         </div>
     </section>
 
+    <!-- FOOTER AVEC CRÉDITS -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -189,7 +300,9 @@
         </div>
     </footer>
 
+    <!-- bouton retour haut de page -->
     <button id="backToTop" title="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
+
     <script src="js/script.js"></script>
 </body>
 </html>
