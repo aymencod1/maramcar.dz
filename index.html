@@ -2,25 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>MARAMCAR · Location de voitures Algérie</title>
     <!-- Feuilles de style -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts : Poppins (français) + Tajawal (arabe) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (gratuit) -->
+    <!-- Google Fonts : Poppins + Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Leaflet pour la carte -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <!-- EN-TÊTE AVEC LOGO (IMAGE), CONTACTS, HORLOGE, MÉTÉO ET BOUTON LANGUE -->
+    <!-- EN-TÊTE AVEC LOGO, CONTACTS, HORLOGE, MÉTÉO ET LANGUE -->
     <header class="header">
         <div class="container header-container">
             <div class="logo">
-                <!-- Logo image from the provided car photo -->
-                <img src="C:\Users\sof-info\Desktop\New folder\images\photo_2025-05-15_22-24-04.jpg" alt="MARAMCAR Logo" class="logo-img">
+                <img src="images/photo_2026-02-24_23-45-03.jpg" alt="MARAMCAR" class="logo-img">
                 <h1>MARAMCAR</h1>
                 <span class="logo-ar">مارامكار</span>
             </div>
@@ -48,7 +46,6 @@
                     <div class="weather" id="weatherWidget">
                         <i class="fas fa-cloud-sun"></i> <span> Chargement...</span>
                     </div>
-                    <!-- Language switcher button -->
                     <button id="langToggle" class="lang-btn">
                         <span class="fr">العربية</span>
                         <span class="ar">Français</span>
@@ -58,7 +55,7 @@
         </div>
     </header>
 
-    <!-- SECTION HÉRO AVEC ACCROCHE BILINGUE -->
+    <!-- SECTION HÉRO -->
     <section class="hero">
         <div class="container hero-content">
             <h2 class="hero-title">
@@ -67,7 +64,7 @@
             </h2>
             <p class="hero-features">
                 <span><i class="fas fa-plane"></i> <span class="fr">Livraison gratuite à l'aéroport</span><span class="ar">توصيل مجاني للمطار</span></span>
-                <span><i class="fas fa-euro-sign"></i> <span class="fr">Euro accepté (Europe / Amérique du Nord)</span><span class="ar">نقبل اليورو</span></span>
+                <span><i class="fas fa-euro-sign"></i> <span class="fr">Euro accepté</span><span class="ar">نقبل اليورو</span></span>
             </p>
             <div class="hero-badge">
                 <i class="fas fa-check-circle"></i> +1.438.920.6259 / +213.556.58.88.65
@@ -95,12 +92,9 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> يبلغ 208 في انتظارك</p>
                         <p class="fr"><i class="fas fa-plane"></i> Livraison gratuite à l'aéroport</p>
                         <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> Nous acceptons l'Euro d'Europe et d'Amérique du Nord</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نستقبل اليدور من أوروبا وأمريكا الشمالية</p>
                     </div>
                     <button class="btn-wa" data-car="Peugeot 208"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
-
                 <!-- Kia Picanto -->
                 <div class="car-card" data-car="Kia Picanto" data-car-ar="كيا بيكانتو">
                     <div class="car-img">
@@ -112,12 +106,9 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> كياه Kia Picanto إبعاد:</p>
                         <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
                         <p class="ar"><i class="fas fa-plane"></i> توصيل الحائط للمطار</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> We accept Euro for expatriates.</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نستقبل من أمرع اليدور</p>
                     </div>
                     <button class="btn-wa" data-car="Kia Picanto"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
-
                 <!-- Hyundai Grand i10 -->
                 <div class="car-card" data-car="Hyundai Grand i10" data-car-ar="هيونداي i10">
                     <div class="car-img">
@@ -129,12 +120,9 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> كياه Kia Picanto إبعاد: توصيل الحائط للمطار Grand i10</p>
                         <p class="fr"><i class="fas fa-plane"></i> Fire airport delivery</p>
                         <p class="ar"><i class="fas fa-plane"></i> تعمل مجاني للمطار!</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> Euro payment available.</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نستقبل من أمرع اليدور</p>
                     </div>
                     <button class="btn-wa" data-car="Hyundai Grand i10"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
-
                 <!-- Renault Clio -->
                 <div class="car-card" data-car="Renault Clio" data-car-ar="رينو كليو">
                     <div class="car-img">
@@ -146,12 +134,10 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> كليو الجديدة في انتظارك</p>
                         <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
                         <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> We accept Euro.</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نقبل اليورو</p>
                     </div>
                     <button class="btn-wa" data-car="Renault Clio"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
-                <!-- lifan xpro -->
+                <!-- Lifan Xpro -->
                 <div class="car-card" data-car="Lifan Xpro" data-car-ar="ليفان Xpro">
                     <div class="car-img">
                         <img src="images/photo_2026-02-24_23-44-57.jpg" alt="Lifan Xpro">
@@ -162,8 +148,6 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> SUV واسع، جاهز للمغامرة</p>
                         <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
                         <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> We accept Euro.</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نقبل اليورو</p>
                     </div>
                     <button class="btn-wa" data-car="Lifan Xpro"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
@@ -178,8 +162,6 @@
                         <p class="ar"><i class="fas fa-check-circle"></i> سيدان أنيقة ومريحة</p>
                         <p class="fr"><i class="fas fa-plane"></i> Free airport delivery</p>
                         <p class="ar"><i class="fas fa-plane"></i> توصيل مجاني للمطار</p>
-                        <p class="fr"><i class="fas fa-euro-sign"></i> We accept Euro.</p>
-                        <p class="ar"><i class="fas fa-euro-sign"></i> نقبل اليورو</p>
                     </div>
                     <button class="btn-wa" data-car="Arrizo 5"><i class="fab fa-whatsapp"></i> <span class="fr">Réserver</span> <span class="ar">احجز</span></button>
                 </div>
@@ -187,7 +169,37 @@
         </div>
     </section>
 
-    <!-- MODAL DE RÉSERVATION AVEC CONDITIONS ET FACTURE SANS PRIX -->
+    <!-- SECTION CONDITIONS (DÉPLIABLE) -->
+    <section class="terms-section-page">
+        <div class="container">
+            <div class="terms-header" id="termsHeader">
+                <h2><i class="fas fa-file-contract"></i> <span class="fr">Conditions de location</span> <span class="ar">شروط الكراء</span></h2>
+                <button class="terms-toggle" id="termsToggle"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <div class="terms-content" id="termsContent">
+                <div class="terms-grid">
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Âge minimum requis: 25 ans</span><span class="ar">السن المطلوب الأمني: 25 سنة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le véhicule est sous la responsabilité du signataire uniquement</span><span class="ar">السيرة تحت مسؤولية الشخص الواحد الذي وقع العقد</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de transport de marchandises ou objets illégaux</span><span class="ar">لا تستعمل السيرة في نقل بضائع أو أشياء غير شرعية</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction d'attacher une remorque</span><span class="ar">غير مسموح بربط مقطورة أو مركبة مماثلة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Autorisation requise pour quitter la wilaya</span><span class="ar">عند مغادرة المركبة إلى خارج الولاية، يجب الاستئذان</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Kilométrage max: 300 km/jour, dépassement 15 DA/km</span><span class="ar">السيرة 300 كم في اليوم، كل تجاوز 15 دج/كم</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le client règle toutes les amendes</span><span class="ar">الزبون يلتزم بدفع المخالفات المرصودة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Assurance uniquement sur le territoire national</span><span class="ar">السيرة مؤمنة داخل الوطن فقط</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte des papiers: responsable client</span><span class="ar">ضياع أوراق السيارة: الزبون مسؤول</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Durée du contrat calculée à partir de la signature</span><span class="ar">مدة العقد تحسب من تاريخ التوقيع</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de circuit de course ou chemins non carrossables</span><span class="ar">لا يسمح بذلك السيارات التي تم استبدالها</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Retour du véhicule à l'agence obligatoire</span><span class="ar">دائمًا السيرة تتعامل مع المحطة</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte d'accessoires: client responsable des frais</span><span class="ar">ضياع الكسورات: الزبون يتحمل التكاليف</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">En cas d'accident, client paie réparations et immobilisation</span><span class="ar">في حالة وقوع حادث، الزبون يتحمل الإصلاحات وأيام التوقف</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Société décline responsabilité pour dommages corporels</span><span class="ar">الوكالة لا تتحمل مسؤولية الأضرار البدنية</span></div>
+                    <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Pneus crevés: réparation à la charge du client</span><span class="ar">عطل في الجولاء (الإطارات) الزبون يتحمل التكلفة</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE RÉSERVATION SIMPLE (SANS CONDITIONS) -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -227,111 +239,52 @@
                     </div>
                 </div>
 
-                <!-- SECTION CONDITIONS (16 articles) -->
-                <div class="terms-section">
-                    <h3><i class="fas fa-file-contract"></i> <span class="fr">Conditions de location</span> <span class="ar">شروط الكراء</span></h3>
-                    <div class="terms-box scrollable">
-                        <!-- Les 16 conditions avec texte bilingue (déjà dans le HTML) -->
-                        <!-- On conserve le même contenu que précédemment -->
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Âge minimum requis: 25 ans</span><span class="ar">السن المطلوب الأمني: 25 سنة</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le véhicule est sous la responsabilité du signataire uniquement</span><span class="ar">السيرة تحت مسؤولية الشخص الواحد الذي وقع العقد</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de transport de marchandises ou objets illégaux</span><span class="ar">لا تستعمل السيرة في نقل بضائع أو أشياء غير شرعية</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction d'attacher une remorque</span><span class="ar">غير مسموح بربط مقطورة أو مركبة مماثلة</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Autorisation requise pour quitter la wilaya</span><span class="ar">عند مغادرة المركبة إلى خارج الولاية، يجب الاستئذان</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Kilométrage max: 300 km/jour, dépassement facturé 15 DA/km</span><span class="ar">السيرة 300 كم في اليوم، كل تجاوز 15 دج/كم</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Le client règle toutes les amendes</span><span class="ar">الزبون يلتزم بدفع المخالفات المرصودة</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Assurance uniquement sur le territoire national</span><span class="ar">السيرة مؤمنة داخل الوطن فقط</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte des papiers: responsable client</span><span class="ar">ضياع أوراق السيارة: الزبون مسؤول</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Durée du contrat calculée à partir de la signature</span><span class="ar">مدة العقد تحسب من تاريخ التوقيع</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Interdiction de circuit de course ou chemins non carrossables</span><span class="ar">لا يسمح بذلك السيارات التي تم استبدالها</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Retour du véhicule à l'agence obligatoire</span><span class="ar">دائمًا السيرة تتعامل مع المحطة</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Perte d'accessoires: client responsable des frais</span><span class="ar">ضياع الكسورات: الزبون يتحمل التكاليف</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">En cas d'accident, client paie réparations et immobilisation</span><span class="ar">في حالة وقوع حادث، الزبون يتحمل الإصلاحات وأيام التوقف</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Société décline responsabilité pour dommages corporels</span><span class="ar">الوكالة لا تتحمل مسؤولية الأضرار البدنية</span></div>
-                        <div class="term-item"><i class="fas fa-check-circle"></i> <span class="fr">Pneus crevés: réparation à la charge du client</span><span class="ar">عطل في الجولاء (الإطارات) الزبون يتحمل التكلفة</span></div>
-                    </div>
+                <!-- Acceptation des conditions (lien vers la section) -->
+                <div class="terms-accept-box">
                     <label class="terms-accept">
                         <input type="checkbox" id="acceptTerms" required>
-                        <span class="fr">J'accepte toutes les conditions de location</span>
-                        <span class="ar">أوافق على جميع شروط الكراء</span>
+                        <span class="fr">J'accepte les <a href="#termsHeader" class="terms-link">conditions de location</a></span>
+                        <span class="ar">أوافق على <a href="#termsHeader" class="terms-link">شروط الكراء</a></span>
                     </label>
                 </div>
 
-                <!-- APERÇU FACTURE SANS PRIX -->
-                <div class="invoice-preview" id="invoicePreview">
-                    <h3><i class="fas fa-file-invoice"></i> <span class="fr">Aperçu facture</span> <span class="ar">فاتورة</span></h3>
-                    <div class="invoice-content">
-                        <div class="invoice-header">
-                            <img src="images/photo_2026-02-24_23-45-03.jpg" alt="MARAMCAR" class="invoice-logo">
-                            <strong>MARAMCAR</strong>
-                        </div>
-                        <p><span class="fr">Client:</span> <span class="ar">الزبون:</span> <span id="invoiceName">-</span></p>
-                        <p><span class="fr">Voiture:</span> <span class="ar">السيارة:</span> <span id="invoiceCar">-</span></p>
-                        <p><span class="fr">Durée:</span> <span class="ar">المدة:</span> <span id="invoiceDuration">-</span> <span class="fr">jours</span><span class="ar">أيام</span></p>
-                        <p><span class="fr">Livraison:</span> <span class="ar">التوصيل:</span> <span id="invoiceDelivery">-</span></p>
-                        <p class="invoice-note"><i class="fas fa-phone-alt"></i> <span class="fr">Pour les prix, contactez-nous</span> <span class="ar">للأسعار اتصل بنا</span></p>
-                        <p class="invoice-note"><i class="fas fa-check-circle"></i> <span class="fr">Conditions acceptées (16 articles)</span> <span class="ar">تم قبول الشروط (16 بند)</span></p>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-red btn-block" id="submitBooking"><i class="fab fa-whatsapp"></i> <span class="fr">Envoyer la facture</span> <span class="ar">إرسال الفاتورة</span></button>
+                <button type="submit" class="btn-red btn-block" id="submitBooking"><i class="fab fa-whatsapp"></i> <span class="fr">Générer PDF et envoyer</span> <span class="ar">إنشاء PDF وإرسال</span></button>
             </form>
         </div>
     </div>
 
-    <!-- SECTION CONTACT AVEC LIENS MIS À JOUR -->
+    <!-- SECTION CONTACT ET RÉSEAUX -->
     <section class="contact-reminder">
         <div class="container">
             <div class="reminder-box">
                 <div class="reminder-item">
                     <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Canada</strong><br>
-                        <a href="tel:+14389206259">+1 438 920 6259</a>
-                    </div>
+                    <div><strong>Canada</strong><br><a href="tel:+14389206259">+1 438 920 6259</a></div>
                 </div>
                 <div class="reminder-item">
                     <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Algérie</strong><br>
-                        <a href="tel:+213556588865">+213 556 58 88 65</a>
-                    </div>
+                    <div><strong>Algérie</strong><br><a href="tel:+213556588865">+213 556 58 88 65</a></div>
                 </div>
                 <div class="reminder-item">
                     <i class="fas fa-user"></i>
-                    <div>
-                        <strong>Chez.Djalal</strong><br>
-                        <span>Disponible 24/7</span>
-                    </div>
+                    <div><strong>Chez.Djalal</strong><br><span>24/7</span></div>
                 </div>
                 <div class="reminder-item social-group">
-                    <a href="https://www.instagram.com/maramcar22?igsh=MXJzcnpvN2Fra2F3ZA==" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1NMENnTKzW/" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://maps.app.goo.gl/YLcJNYVDbgW2CmSL6" target="_blank" class="social-link" title="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+                    <a href="https://www.instagram.com/maramcar22?igsh=MXJzcnpvN2Fra2F3ZA==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1NMENnTKzW/" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="https://maps.app.goo.gl/YLcJNYVDbgW2CmSL6" target="_blank" class="social-link"><i class="fas fa-map-marker-alt"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CARTE (lien direct vers Google Maps) -->
-    <div id="mapModal" class="modal map-modal">
-        <div class="modal-content map-content">
-            <span class="close-modal close-map">&times;</span>
-            <h3><span class="fr">Notre emplacement</span> <span class="ar">موقعنا</span></h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25574.34589783434!2d3.0588!3d36.7538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e4f5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sAlger!5e0!3m2!1sfr!2sdz!4v1234567890" width="100%" height="400" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
 
     <!-- FOOTER AVEC CRÉDITS -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="C:\Users\sof-info\Desktop\New folder\images\photo_2025-05-15_22-24-04.jpg" alt="MARAMCAR" class="footer-logo-img">
+                    <img src="images/photo_2026-02-24_23-45-03.jpg" alt="MARAMCAR" class="footer-logo-img">
                     MARAMCAR <span class="ar">مارامكار</span>
-                </div>
-                <div class="footer-copy">
-                    &copy; 2025 MARAMCAR - Location de voitures France & Algérie
                 </div>
                 <div class="footer-dev">
                     <span class="fr">Développeur technique & Directeur marketing: aymen djilali</span>
@@ -350,7 +303,6 @@
     <!-- bouton retour haut de page -->
     <button id="backToTop" title="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- Fichier JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>
