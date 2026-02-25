@@ -1,75 +1,54 @@
-// MARAMCAR - Script principal
-
 document.addEventListener('DOMContentLoaded', function() {
     const { jsPDF } = window.jspdf;
 
-    // ===== HORLOGE =====
     function updateClock() {
         const now = new Date();
         const options = { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit', 
-            minute: '2-digit',
-            hour12: false 
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', hour12: false 
         };
-        const dateStr = now.toLocaleDateString('fr-FR', options);
-        document.getElementById('liveClock').innerHTML = `<i class="far fa-calendar-alt"></i> ${dateStr}`;
+        document.getElementById('liveClock').innerHTML = `<i class="far fa-calendar-alt"></i> ${now.toLocaleDateString('fr-FR', options)}`;
     }
     updateClock();
     setInterval(updateClock, 1000);
 
-    // ===== MÉTÉO =====
+    // Météo
     const weatherSpan = document.querySelector('#weatherWidget span');
     const weatherIcon = document.querySelector('#weatherWidget i');
-    
     function getWeatherIcon(code) {
-        if (code >= 0 && code <= 1) return 'fa-sun';
+        if (code <= 1) return 'fa-sun';
         if (code == 2) return 'fa-cloud-sun';
         if (code == 3) return 'fa-cloud';
         if (code >= 45 && code <= 48) return 'fa-smog';
         if (code >= 51 && code <= 67) return 'fa-cloud-rain';
         if (code >= 71 && code <= 77) return 'fa-snowflake';
-        if (code >= 80 && code <= 99) return 'fa-cloud-showers-heavy';
+        if (code >= 80) return 'fa-cloud-showers-heavy';
         return 'fa-cloud-sun';
     }
-
     fetch('https://api.open-meteo.com/v1/forecast?latitude=36.75&longitude=3.05&current_weather=true&timezone=auto')
-        .then(response => response.json())
+        .then(r => r.json())
         .then(data => {
-            const temp = data.current_weather.temperature;
-            const code = data.current_weather.weathercode;
-            weatherIcon.className = `fas ${getWeatherIcon(code)}`;
-            weatherSpan.textContent = `${temp}°C · Alger`;
+            weatherIcon.className = `fas ${getWeatherIcon(data.current_weather.weathercode)}`;
+            weatherSpan.textContent = `${data.current_weather.temperature}°C · Alger`;
         })
-        .catch(() => {
-            weatherSpan.textContent = 'Météo indisponible';
-        });
+        .catch(() => weatherSpan.textContent = 'Météo indisponible');
 
-    // ===== LANGUAGE SWITCHER =====
+    // Langue
     const langToggle = document.getElementById('langToggle');
     const body = document.body;
     let currentLang = localStorage.getItem('maramcar_lang') || 'fr';
-    if (currentLang === 'fr') {
-        body.classList.add('lang-fr-only');
-    } else {
-        body.classList.add('lang-ar-only');
-    }
+    body.classList.add(currentLang === 'fr' ? 'lang-fr-only' : 'lang-ar-only');
     langToggle.addEventListener('click', () => {
         if (body.classList.contains('lang-fr-only')) {
-            body.classList.remove('lang-fr-only');
-            body.classList.add('lang-ar-only');
+            body.classList.replace('lang-fr-only', 'lang-ar-only');
             localStorage.setItem('maramcar_lang', 'ar');
         } else {
-            body.classList.remove('lang-ar-only');
-            body.classList.add('lang-fr-only');
+            body.classList.replace('lang-ar-only', 'lang-fr-only');
             localStorage.setItem('maramcar_lang', 'fr');
         }
     });
 
-    // ===== TERMS TOGGLE =====
+    // Conditions toggle
     const termsToggle = document.getElementById('termsToggle');
     const termsContent = document.getElementById('termsContent');
     termsToggle.addEventListener('click', () => {
@@ -77,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         termsToggle.classList.toggle('rotated');
     });
 
-    // ===== MODAL =====
+    // Modal
     const modal = document.getElementById('bookingModal');
     const closeModal = document.querySelector('.close-modal');
     const waButtons = document.querySelectorAll('.btn-wa');
@@ -91,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     waButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            const car = btn.getAttribute('data-car');
+            const car = btn.dataset.car;
             const card = btn.closest('.car-card');
             const carAr = card.querySelector('.car-name .ar')?.innerText || '';
             modalCarName.textContent = car;
@@ -104,14 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) modal.style.display = 'none';
-    });
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-    // ===== GÉNÉRATION PDF =====
+    // Génération PDF
     function generatePDF(data) {
         const doc = new jsPDF();
         doc.setFontSize(20);
@@ -131,34 +106,31 @@ document.addEventListener('DOMContentLoaded', function() {
         let y = 115;
         const conditions = [
             '1. Âge minimum 25 ans / السن القانوني 25 سنة',
-            '2. Responsabilité unique du signataire / مسؤولية الشخص الواحد',
-            '3. Interdiction transport illégal / منع نقل بضائع غير شرعية',
-            '4. Interdiction remorque / منع ربط مقطورة',
-            '5. Autorisation pour quitter wilaya / استئذان لمغادرة الولاية',
-            '6. 300 km/jour max, dépassement 15 DA/km / 300 كم/يوم',
-            '7. Amendes à la charge du client / المخالفات على الزبون',
-            '8. Assurance nationale uniquement / تأمين وطني فقط',
-            '9. Perte papiers: client responsable / ضياع أوراق',
-            '10. Durée calculée dès signature / المدة من التوقيع',
-            '11. Interdiction circuits/courses / منع السباقات',
-            '12. Retour à l\'agence obligatoire / إرجاع للوكالة',
-            '13. Perte accessoires: frais client / ضياع كسورات',
-            '14. Accident: réparation + immobilisation client / حادث: إصلاح وتوقف',
-            '15. Société non responsable dommages corporels / لا مسؤولية عن أضرار بدنية',
-            '16. Pneus crevés: réparation client / إطارات: الزبون يتحمل'
+            '2. Responsabilité unique du signataire',
+            '3. Interdiction transport illégal',
+            '4. Interdiction remorque',
+            '5. Autorisation pour quitter wilaya',
+            '6. 300 km/jour max, dépassement 15 DA/km',
+            '7. Amendes à la charge du client',
+            '8. Assurance nationale uniquement',
+            '9. Perte papiers: client responsable',
+            '10. Durée calculée dès signature',
+            '11. Interdiction circuits/courses',
+            '12. Retour à l\'agence obligatoire',
+            '13. Perte accessoires: frais client',
+            '14. Accident: réparation + immobilisation',
+            '15. Société non responsable dommages corporels',
+            '16. Pneus crevés: réparation client'
         ];
         conditions.forEach(cond => {
-            if (y > 280) {
-                doc.addPage();
-                y = 20;
-            }
+            if (y > 280) { doc.addPage(); y = 20; }
             doc.text(cond, 20, y);
             y += 7;
         });
         doc.save(`MARAMCAR_${data.prenom}_${data.nom}.pdf`);
     }
 
-    // ===== ENVOI =====
+    // Envoi WhatsApp
     const canadianNumber = '14389206259';
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -179,15 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Générer PDF
-        const data = {
-            prenom, nom, phone, duree, delivery,
-            car: carInput.value,
-            carAr: carArInput.value
-        };
-        generatePDF(data);
+        generatePDF({ prenom, nom, phone, duree, delivery, car: carInput.value, carAr: carArInput.value });
 
-        // Ouvrir WhatsApp avec message
         const msg = `*MARAMCAR - Demande de réservation*%0A` +
                     `Client: ${prenom} ${nom}%0A` +
                     `Téléphone: ${phone}%0A` +
@@ -201,13 +166,10 @@ document.addEventListener('DOMContentLoaded', function() {
         bookingForm.reset();
     });
 
-    // ===== BACK TO TOP =====
+    // Back to top
     const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) backBtn.classList.add('visible');
-        else backBtn.classList.remove('visible');
+        backBtn.classList.toggle('visible', window.scrollY > 300);
     });
-    backBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 });
