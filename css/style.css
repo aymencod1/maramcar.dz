@@ -1,3 +1,4 @@
+/* style.css - Version ultra-responsive pour mobile (iPhone + Android) */
 :root {
     --primary-red: #c22b2b;
     --dark-red: #9f1f1f;
@@ -5,7 +6,7 @@
     --black: #1a1a1a;
     --gray-dark: #2d2d2d;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(170, 30, 30, 0.15);
+    --shadow: 0 5px 20px rgba(170,30,30,0.15);
     --transition: all 0.3s ease;
     --safe-top: env(safe-area-inset-top);
     --safe-bottom: env(safe-area-inset-bottom);
@@ -19,17 +20,18 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 70px;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #fff9f9, #ffefef);
     color: var(--black);
-    line-height: 1.5;
+    line-height: 1.4;
     padding-top: var(--safe-top);
     padding-bottom: var(--safe-bottom);
     min-height: 100vh;
+    font-size: 16px; /* base pour rem */
 }
 
 .ar, [class*="ar"] {
@@ -39,7 +41,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 12px;
 }
 
 /* ----- HEADER ----- */
@@ -49,16 +51,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 8px 0;
     border-bottom: 2px solid var(--primary-red);
-    padding-top: max(10px, var(--safe-top));
+    padding-top: max(8px, var(--safe-top));
 }
 
 .header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 @media (min-width: 768px) {
@@ -71,21 +73,21 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: var(--white);
+    gap: 8px;
+    color: white;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .logo-img {
-    height: 40px;
+    height: 32px;
     width: auto;
-    border-radius: 8px;
-    border: 2px solid var(--primary-red);
+    border-radius: 6px;
+    border: 1.5px solid var(--primary-red);
 }
 
 .logo h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 800;
     background: linear-gradient(145deg, #fff, #ffb5b5);
     -webkit-background-clip: text;
@@ -93,10 +95,10 @@ body {
 }
 
 .logo-ar {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--primary-red);
     background: rgba(255,255,255,0.1);
-    padding: 4px 12px;
+    padding: 2px 8px;
     border-radius: 30px;
 }
 
@@ -104,7 +106,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     width: 100%;
 }
 
@@ -112,26 +114,30 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    width: 100%;
+    gap: 6px;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     background: rgba(255,255,255,0.1);
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 50px;
-    color: var(--white);
+    color: white;
     border: 1px solid rgba(194,43,43,0.3);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     white-space: nowrap;
 }
 
 .contact-item i {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--primary-red);
+}
+
+.contact-item small {
+    font-size: 0.6rem;
+    opacity: 0.8;
 }
 
 .widgets {
@@ -139,37 +145,38 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: rgba(0,0,0,0.4);
-    padding: 6px 16px;
+    padding: 4px 12px;
     border-radius: 50px;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.1);
     width: fit-content;
     max-width: 100%;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .clock, .weather {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     color: white;
     white-space: nowrap;
 }
 
 .clock i, .weather i {
     color: var(--primary-red);
+    font-size: 0.8rem;
 }
 
 .lang-btn {
     background: var(--primary-red);
     color: white;
     border: none;
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     cursor: pointer;
     border: 1px solid white;
 }
@@ -181,67 +188,67 @@ body {
                 center/cover fixed;
     color: white;
     text-align: center;
-    padding: 40px 12px;
-    margin-bottom: 30px;
-    min-height: 300px;
+    padding: 30px 12px;
+    margin-bottom: 25px;
+    min-height: 220px;
     display: flex;
     align-items: center;
 }
 
 @media (max-width: 480px) {
     .hero {
-        background-attachment: scroll; /* أفضل للهاتف */
-        min-height: 250px;
-        padding: 30px 12px;
+        background-attachment: scroll;
+        min-height: 200px;
+        padding: 20px 12px;
     }
 }
 
 .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .hero-title .ar {
     font-size: 0.8em;
     color: var(--light-red);
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .hero-features {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 15px 0;
+    gap: 6px;
+    margin: 12px 0;
 }
 
 .hero-features span {
     background: rgba(194,43,43,0.3);
     backdrop-filter: blur(5px);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 50px;
     border: 1px solid var(--primary-red);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: inline-block;
 }
 
 .hero-badge {
     background: var(--primary-red);
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 60px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: inline-block;
 }
 
 /* ----- SHOWROOM ----- */
 .section-header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .section-header h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
 }
 
@@ -251,21 +258,22 @@ body {
 
 .car-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* une seule colonne sur mobile */
     gap: 16px;
     margin-bottom: 30px;
 }
 
 @media (min-width: 480px) {
-    .car-grid { grid-template-columns: repeat(2,1fr); }
+    .car-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (min-width: 768px) {
-    .car-grid { grid-template-columns: repeat(3,1fr); }
+    .car-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .car-card {
     background: white;
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
     border: 1px solid rgba(194,43,43,0.2);
@@ -274,7 +282,7 @@ body {
 }
 
 .car-img {
-    height: 150px;
+    height: 140px;
     overflow: hidden;
 }
 .car-img img {
@@ -284,17 +292,17 @@ body {
 }
 
 .car-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: 12px 12px 5px;
+    padding: 10px 12px 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 4px;
 }
 .car-name .ar {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--primary-red);
     background: var(--light-red);
     padding: 2px 8px;
@@ -302,26 +310,27 @@ body {
 }
 
 .car-desc {
-    padding: 0 12px 10px;
-    font-size: 0.8rem;
+    padding: 0 12px 8px;
+    font-size: 0.75rem;
 }
 .car-desc p {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     display: flex;
     align-items: center;
     gap: 4px;
 }
 .car-desc i {
     color: var(--primary-red);
+    font-size: 0.7rem;
 }
 
 .btn-wa {
     background: var(--primary-red);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 10px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -337,9 +346,9 @@ body {
 /* ----- TERMS SECTION ----- */
 .terms-section-page {
     background: white;
-    border-radius: 30px;
-    padding: 18px;
-    margin: 25px 0;
+    border-radius: 24px;
+    padding: 16px;
+    margin: 20px 0;
     box-shadow: var(--shadow);
     border: 1px solid var(--primary-red);
 }
@@ -351,16 +360,16 @@ body {
     cursor: pointer;
 }
 .terms-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: var(--primary-red);
 }
 .terms-toggle {
     background: none;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--primary-red);
     cursor: pointer;
     transition: transform 0.3s;
@@ -377,26 +386,27 @@ body {
 .terms-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 8px;
+    margin-top: 12px;
 }
 @media (min-width: 600px) {
-    .terms-grid { grid-template-columns: repeat(2,1fr); }
+    .terms-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .term-item {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
     background: var(--light-red);
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 8px;
+    border-radius: 18px;
+    font-size: 0.7rem;
     border: 1px solid rgba(194,43,43,0.2);
 }
 .term-item i {
     color: var(--primary-red);
-    margin-top: 3px;
+    margin-top: 2px;
+    font-size: 0.8rem;
 }
 
 /* ----- MODAL ----- */
@@ -408,16 +418,16 @@ body {
     width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.8);
     backdrop-filter: blur(5px);
-    padding: 16px;
+    padding: 10px;
     overflow-y: auto;
 }
 
 .modal-content {
     background: linear-gradient(145deg, #fff, #fce4e4);
     margin: 10% auto;
-    padding: 25px;
-    border-radius: 30px;
-    max-width: 500px;
+    padding: 20px;
+    border-radius: 24px;
+    max-width: 450px;
     width: 100%;
     box-shadow: 0 20px 40px rgba(194,43,43,0.3);
     border: 2px solid var(--primary-red);
@@ -426,8 +436,8 @@ body {
 
 .close-modal {
     position: absolute;
-    top: 12px; right: 18px;
-    font-size: 2rem;
+    top: 10px; right: 15px;
+    font-size: 1.8rem;
     color: var(--primary-red);
     cursor: pointer;
 }
@@ -435,50 +445,50 @@ body {
 .form-row {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 @media (min-width: 480px) {
     .form-row { flex-direction: row; }
 }
 
 .form-group {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     flex: 1;
 }
 .form-group label {
     display: block;
     font-weight: 600;
-    margin-bottom: 4px;
-    font-size: 0.9rem;
+    margin-bottom: 3px;
+    font-size: 0.8rem;
 }
 .form-group input {
     width: 100%;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border: 2px solid #ddd;
     border-radius: 50px;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 @media (min-width: 480px) {
-    .radio-group { flex-direction: row; gap: 15px; }
+    .radio-group { flex-direction: row; gap: 10px; }
 }
 .radio-group label {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.9rem;
+    gap: 4px;
+    font-size: 0.8rem;
 }
 
 .terms-accept-box {
-    margin: 15px 0;
-    padding: 10px;
+    margin: 12px 0;
+    padding: 8px;
     background: var(--light-red);
     border-radius: 50px;
     text-align: center;
@@ -487,8 +497,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
+    font-size: 0.8rem;
 }
 .terms-link {
     color: var(--primary-red);
@@ -497,8 +508,8 @@ body {
 
 .btn-block {
     width: 100%;
-    padding: 14px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 0.9rem;
     border-radius: 50px;
     background: var(--primary-red);
     color: white;
@@ -509,32 +520,32 @@ body {
 
 /* ----- CONTACT REMINDER ----- */
 .contact-reminder {
-    margin: 30px 0;
+    margin: 25px 0;
 }
 .reminder-box {
     background: var(--gray-dark);
-    border-radius: 40px;
-    padding: 20px 16px;
+    border-radius: 30px;
+    padding: 16px 12px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     color: white;
 }
 .reminder-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex: 1 1 auto;
-    min-width: 150px;
+    min-width: 120px;
     justify-content: center;
 }
 .reminder-item i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary-red);
     background: rgba(255,255,255,0.1);
-    width: 40px; height: 40px;
+    width: 32px; height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -544,20 +555,24 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.75rem;
+}
+.reminder-item div {
+    font-size: 0.75rem;
 }
 .social-group {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 .social-link {
-    width: 40px; height: 40px;
+    width: 32px; height: 32px;
     background: rgba(255,255,255,0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: var(--transition);
 }
 .social-link:hover {
@@ -569,43 +584,43 @@ body {
 .footer {
     background: var(--black);
     color: white;
-    padding: 30px 0 20px;
+    padding: 25px 0 15px;
     border-top: 5px solid var(--primary-red);
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
     text-align: center;
 }
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.4rem;
+    gap: 8px;
+    font-size: 1.2rem;
     font-weight: 800;
 }
 .footer-logo-img {
-    height: 40px;
-    border-radius: 8px;
+    height: 30px;
+    border-radius: 6px;
     border: 2px solid var(--primary-red);
 }
 .footer-dev {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     background: rgba(194,43,43,0.2);
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 50px;
     border: 1px solid var(--primary-red);
 }
 .footer-links {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 .footer-links a {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     transition: var(--transition);
 }
 .footer-links a:hover {
@@ -616,13 +631,13 @@ body {
 /* ----- BACK TO TOP ----- */
 #backToTop {
     position: fixed;
-    bottom: 20px; right: 20px;
+    bottom: 15px; right: 15px;
     background: var(--primary-red);
     color: white;
     border: none;
-    width: 44px; height: 44px;
+    width: 38px; height: 38px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     opacity: 0;
     transition: var(--transition);
