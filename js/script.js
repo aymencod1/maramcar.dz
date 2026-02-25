@@ -1,6 +1,8 @@
+// script.js - Toutes les fonctionnalités conservées
 document.addEventListener('DOMContentLoaded', function() {
     const { jsPDF } = window.jspdf;
 
+    // Horloge
     function updateClock() {
         const now = new Date();
         const options = { 
@@ -106,21 +108,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let y = 115;
         const conditions = [
             '1. Âge minimum 25 ans / السن القانوني 25 سنة',
-            '2. Responsabilité unique du signataire',
-            '3. Interdiction transport illégal',
-            '4. Interdiction remorque',
-            '5. Autorisation pour quitter wilaya',
-            '6. 300 km/jour max, dépassement 15 DA/km',
-            '7. Amendes à la charge du client',
-            '8. Assurance nationale uniquement',
-            '9. Perte papiers: client responsable',
-            '10. Durée calculée dès signature',
-            '11. Interdiction circuits/courses',
-            '12. Retour à l\'agence obligatoire',
-            '13. Perte accessoires: frais client',
-            '14. Accident: réparation + immobilisation',
-            '15. Société non responsable dommages corporels',
-            '16. Pneus crevés: réparation client'
+            '2. Responsabilité unique du signataire / مسؤولية الشخص الواحد',
+            '3. Interdiction transport illégal / منع نقل بضائع غير شرعية',
+            '4. Interdiction remorque / منع ربط مقطورة',
+            '5. Autorisation pour quitter wilaya / استئذان لمغادرة الولاية',
+            '6. 300 km/jour max, dépassement 15 DA/km / 300 كم/يوم',
+            '7. Amendes à la charge du client / المخالفات على الزبون',
+            '8. Assurance nationale uniquement / تأمين وطني فقط',
+            '9. Perte papiers: client responsable / ضياع أوراق',
+            '10. Durée calculée dès signature / المدة من التوقيع',
+            '11. Interdiction circuits/courses / منع السباقات',
+            '12. Retour à l\'agence obligatoire / إرجاع للوكالة',
+            '13. Perte accessoires: frais client / ضياع كسورات',
+            '14. Accident: réparation + immobilisation / حادث: إصلاح وتوقف',
+            '15. Société non responsable dommages corporels / لا مسؤولية عن أضرار بدنية',
+            '16. Pneus crevés: réparation client / إطارات: الزبون يتحمل'
         ];
         conditions.forEach(cond => {
             if (y > 280) { doc.addPage(); y = 20; }
